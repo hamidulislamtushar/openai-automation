@@ -15,7 +15,7 @@ headers = {'Authorization': 'Basic ' + token.decode('utf-8')}
 
 
 def text_render(command):
-  openai.api_key = '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'
+  openai.api_key = ''
   response = openai.Completion.create(model="text-davinci-002",prompt=command,temperature=0.7,max_tokens=1000,top_p=1,frequency_penalty=0,presence_penalty=0)
   return response["choices"][0]["text"].strip()
 def text_formating(text):
@@ -24,7 +24,7 @@ def text_formating(text):
     retun_text2 = '<!-- wp:paragraph --><p>' + ''.join(text[2:4]) + '</p><!-- /wp:paragraph -->'
     retun_text3 = '<!-- wp:paragraph --><p>' + ''.join(text[4:]) + '</p><!-- /wp:paragraph -->'
     return retun_text1+retun_text2+retun_text3
-with open('/content/drive/MyDrive/Colab Notebooks/openai-automation-live/keyword.txt', 'r+') as file:
+with open('keyword.txt', 'r+') as file:
   read_line = file.readlines()
   for keyword in read_line:
     final_outline = []
